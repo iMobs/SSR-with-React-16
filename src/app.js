@@ -11,12 +11,12 @@ import App from './client/components/App';
 
 const app = express();
 
+applyMiddleware(app);
+
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 app.use(express.static(path.join(__dirname, '../public')));
-
-applyMiddleware(app);
 
 app.get('*', (req, res) => {
   const context = {};
